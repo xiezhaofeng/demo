@@ -1,0 +1,46 @@
+
+buildscript {
+	ext {
+		springBootVersion = '1.5.9.RELEASE'
+	}
+	repositories {
+		mavenLocal()
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+
+jar {
+	baseName = 'eureka-server'
+	version = '0.0.1-SNAPSHOT'
+}
+
+sourceCompatibility = 1.8
+
+
+repositories {
+	mavenLocal()
+	mavenCentral()
+}
+
+
+dependencies {
+	compile('org.springframework.boot:spring-boot-starter-web')
+	compile('org.springframework.boot:spring-boot-starter-actuator')
+	// https://mvnrepository.com/artifact/org.projectlombok/lombok
+	compile group: 'org.projectlombok', name: 'lombok', version: '1.16.16'
+	
+	
+	compile('org.springframework.cloud:spring-cloud-netflix:1.4.0.RELEASE')
+    compile('org.springframework.cloud:spring-cloud-starter-netflix-eureka-server:1.4.0.RELEASE')
+//    compile('org.springframework.cloud:spring-cloud-starter-hystrix:1.4.0.RELEASE')
+    compile('org.springframework.cloud:spring-cloud-starter-zuul:1.4.0.RELEASE')
+
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+}

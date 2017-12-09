@@ -1,0 +1,4 @@
+eureka-provider:
+  ribbon:
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.WeightedResponseTimeRule
+    listOfServers: 127.0.0.1:8800

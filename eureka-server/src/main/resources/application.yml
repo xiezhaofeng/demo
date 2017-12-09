@@ -1,0 +1,40 @@
+spring:
+  profiles:
+    active: demo2
+server:
+  application:
+    name: eureka-server
+  port: 8761
+eureka:
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+zuul:
+  routes:
+    eureka-provider:
+      path: /usersystem/**
+      serviceId: eureka-provider
+ribbon:
+  eureka:
+    enabled: false
+#eureka-provider:
+#  ribbon:
+#    UseIPAddrForServer: true
+#    DeploymentContextBasedVipAddresses: eureka-provider-vip
+#    NIWSServerListFilterClassName: com.netflix.loadbalancer.ServerListSubsetFilter
+#    ServerListSubsetFilter.size: 5
+#    NIWSServerListClassName: com.netflix.niws.loadbalancer.DiscoveryEnabledNIWSServerList
+#    ServerListRefreshInterval: 60000
+#    DeploymentContextBasedVipAddresses: eureka-server
+#    NIWSServerListClassName: com.netflix.loadbalancer.ConfigurationBasedServerList
+#    listOfServers: 127.0.0.1:8800, 127.0.0.1:8801
+#    NIWSServerListClassName: com.netflix.niws.loadbalancer.DiscoveryEnabledNIWSServerList
+#    DeploymentContextBasedVipAddresses: eureka-provider
+#security:
+#  basic:
+#    enabled: true
+#  user:
+#    name: root
+#    password: booszy
+
+

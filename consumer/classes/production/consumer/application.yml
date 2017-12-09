@@ -1,0 +1,27 @@
+server:
+ port: 8080
+spring:
+  application:
+   name: eureka-consumer
+eureka:
+  instance:
+    statusPageUrlPath: ${management.context-path}/info
+    healthCheckUrlPath: ${management.context-path}/health
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+#
+#server:
+#  port: 8012
+#spring:
+#  hateoas:
+#    use-hal-as-default-json-media-type: true
+#  application:
+#    name: microservice-consumer-user
+#
+#eureka:
+#  client:
+#    serviceUrl:
+#      defaultZone: http://localhost:8000/eureka/,http://localhost:8001/eureka/
+#  instance:
+#    preferIpAddress: true
